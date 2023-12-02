@@ -19,26 +19,11 @@ public class Day_1_bonus {
             String rightNum = "";
             index = 0;
             while (rightNum.isEmpty()) {
-                rightNum = findNum(line.substring(line.length() - index, line.length()));
+                rightNum = findNum(line.substring(line.length() - index));
                 index++;
             }
-
-
             line = leftNum + rightNum;
-            System.out.println(line);
-
-            if(line.length() == 1)
-            {
-                line += line;
-                sum += Integer.parseInt(line);
-            } else if (line.length() > 2) {
-                line = line.charAt(0) + line.substring(line.length() - 1);
-                sum += Integer.parseInt(line);
-            }
-            else
-            {
-                sum += Integer.parseInt(line);
-            }
+            sum += Integer.parseInt(line);
         }
         System.out.println(sum);
     }
