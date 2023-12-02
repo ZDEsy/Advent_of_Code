@@ -23,6 +23,7 @@ public class Day_1 {
                 sum += Integer.parseInt(line);
             }
         }
+        sc.close();
         System.out.println(sum);
     }
 
