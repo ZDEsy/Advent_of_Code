@@ -27,6 +27,7 @@ public class Day_1_bonus {
             line = leftNum + rightNum;
             sum += Integer.parseInt(line);
         }
+        sc.close();
         System.out.println(sum);
     }
 
