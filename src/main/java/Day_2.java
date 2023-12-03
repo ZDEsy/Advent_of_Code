@@ -18,13 +18,14 @@ public class Day_2{
                 //number in each element of the array
             int valNum = Integer.parseInt(cubes[i].replaceAll("[^\\d.]", ""));
 
-
+            //condition for index 0, because it didn't register
             int zeroNum = Integer.parseInt(cubes[0].replaceAll("[^\\d.]", ""));
             if (zeroNum > 12 && cubes[0].contains("red") || zeroNum > 13 && cubes[0].contains("green") || zeroNum > 14 && cubes[0].contains("blue")) {
                 NewLine();
                 gameNum++;
                 i = 0;
             }
+            //condition to check each color and if it reaches last element it will add up to sum game number
             else if (valNum > 12 && cubes[i].contains("red") || valNum > 13 && cubes[i].contains("green") || valNum > 14 && cubes[i].contains("blue")) {
                 NewLine();
                 gameNum++;
@@ -41,6 +42,7 @@ public class Day_2{
         }
     }
 
+    //new line and splits it in array by each cubes
     public static void NewLine()
     {
             line = sc.nextLine();
