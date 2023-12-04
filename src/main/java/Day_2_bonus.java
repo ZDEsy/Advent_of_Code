@@ -51,7 +51,7 @@ public class Day_2_bonus {
     }
     static {
         try {
-            sc = new Scanner(new File("games.txt"));
+            sc = new Scanner(new File("input2.txt"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

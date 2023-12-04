@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Day_1_bonus {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File("input.txt"));
+        Scanner sc = new Scanner(new File("input1.txt"));
         int sum = 0;
         while(sc.hasNextLine())
         {
