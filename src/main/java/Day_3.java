@@ -1,10 +1,7 @@
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Scanner;
 
 public class Day_3 {
     public static int i;
@@ -17,8 +14,8 @@ public class Day_3 {
         for(String line : lineMid)
         {
             int lineNum = lineMid.indexOf(line);
-            String lineUp = line;
-            String lineDown = line;
+            String lineUp = line.replaceAll("[0123456789]",".");
+            String lineDown = line.replaceAll("[0123456789]",".");
             if(lineNum != 0)
             {
                 lineUp = lineMid.get(lineNum-1);
@@ -31,33 +28,34 @@ public class Day_3 {
             {
                 if(Character.isDigit(line.charAt(i)))
                 {
-                    while(Character.isDigit(line.charAt(i)))
+                    while(Character.isDigit(line.charAt(i)) && i < 139)
                     {
                         num += line.charAt(i);
-                        if(i != 0 && i != 140)
+                        if(i == 138 && Character.isDigit(line.charAt(i+1))) num += line.charAt(i+1);
+                        if(i > 0)
                         {
                             if(isChar(lineUp, line, lineDown, i)) isValid = true;
                         }
                         i++;
                     }
                     if(isValid) sum += Integer.parseInt(num);
-                    System.out.println(sum);
+                    System.out.println(num);
+                    System.out.println("Sum: " + sum);
                     num = "";
+                    isValid = false;
                 }
             }
         }
     }
     public static boolean isChar(String lineUp, String line, String lineDown, int i)
     {
-        lineUp = lineUp.replace("0123456789", ".");
-        lineDown = lineDown.replace("0123456789", ".");
-        return lineUp.indexOf(i) != '.' || lineUp.indexOf(i-1) != '.' || lineUp.indexOf(i+1) != '.' ||
-                lineDown.indexOf(i) != '.' || lineDown.indexOf(i-1) != '.' || lineDown.indexOf(i+1) != '.' || (line.indexOf(i-1) != '.' &&
-                !Character.isDigit(line.charAt(i-1))) || (line.indexOf(i+1) != '.' && !Character.isDigit(line.charAt(i+1)));
-    }
-
-    public static boolean isDigit(String line)
-    {
-        return !Character.isDigit(line.charAt(i+1)) && !Character.isDigit(line.charAt(i-1));
+        if(lineUp.charAt(i) != '.' && !Character.isDigit(lineUp.charAt(i))) return true;
+        else if(lineUp.charAt(i-1) != '.' && !Character.isDigit(lineUp.charAt(i-1))) return true;
+        else if(lineUp.charAt(i+1) != '.' && !Character.isDigit(lineUp.charAt(i+1))) return true;
+        else if(lineDown.charAt(i) != '.' && !Character.isDigit(lineUp.charAt(i))) return true;
+        else if(lineDown.charAt(i-1) != '.' && !Character.isDigit(lineDown.charAt(i-1))) return true;
+        else if(lineDown.charAt(i+1) != '.' && !Character.isDigit(lineDown.charAt(i+1))) return true;
+        else if(line.charAt(i-1) != '.' && !Character.isDigit(line.charAt(i-1))) return true;
+        else return line.charAt(i + 1) != '.' && !Character.isDigit(line.charAt(i + 1));
     }
 }
