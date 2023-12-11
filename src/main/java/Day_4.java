@@ -9,33 +9,41 @@ public class Day_4 {
     public static void main(String[] args) throws IOException {
         Path path = Path.of("input4.txt");
         List<String> strings = Files.readAllLines(path);
+        int powTwo = 0;
+        int sum = 0;
         for(String line : strings)
         {
-            line = line.replaceAll("[^\\d.]", " ").trim();
+            line = line.replaceAll("[^\\d.]+", " ").trim();
             String[] lineArr = line.split(" ");
-            System.out.println(Arrays.toString(lineArr));
             int[] winNums = new int[10];
             int[] heldNums = new int[25];
-            int i = 1;
-                for(int j = 0; j < winNums.length; j++)
+            int j = 0;
+            int k = 0;
+                for(int i = 1; i < 36; i++)
                 {
-                    if (!Objects.equals(lineArr[i], "")) {
-                        winNums[j] = Integer.parseInt(lineArr[i].trim());
-                        i++;
+                    if(i < 11)
+                    {
+                        winNums[j] = Integer.parseInt(lineArr[i]);
+                        j++;
                     }
-                    else j--; i++;
+                    else
+                    {
+                        heldNums[k] = Integer.parseInt(lineArr[i]);
+                        k++;
+                    }
                 }
-                for(int k = 0; k < heldNums.length; k++)
+            for(int num : winNums)
+            {
+                for(int heldNum : heldNums)
                 {
-                    if (!Objects.equals(lineArr[i], "")) {
-                        winNums[k] = Integer.parseInt(lineArr[i].trim());
-                        i++;
-                    }
-                    else k--; i++;
+                    if(num == heldNum && powTwo == 0) powTwo += 1;
+                    else if(num == heldNum) powTwo *= 2;
                 }
-            System.out.println(Arrays.toString(winNums));
-
+            }
+            sum += powTwo;
+            powTwo = 0;
         }
+        System.out.println(sum);
 
     }
 }
