@@ -8,22 +8,30 @@ public class Day_5 {
     public static void main(String[] args) throws IOException {
         List<String> strings = Files.readAllLines(Path.of("input5.txt"));
         String[] seeds = strings.get(0).replaceAll("[^\\d.]+", " ").trim().split(" ");
-        long[] intSeeds = new long[seeds.length];
+        long[] longSeeds = new long[seeds.length];
+        long diff;
+        long num;
         for(int i = 0; i < seeds.length; i++)
         {
-            intSeeds[i] = Long.parseLong(seeds[i]);
+            longSeeds[i] = Long.parseLong(seeds[i]);
         }
-        System.out.println(Arrays.toString(intSeeds));
-        for(int i = 0; i < intSeeds.length; i++)
-        {
-            for(int j = 1; j < strings.size(); j++)
-            {
-                if(strings.contains("123456789"))
-                {
+        System.out.println(Arrays.toString(longSeeds));
+        for (long source : longSeeds) {
+            for (int j = 2; j < strings.size(); j++) {
+                if (strings.get(j).isEmpty()) j++;
+                if (Character.isDigit(strings.get(j).charAt(0))) {
                     String[] srcDest = strings.get(j).trim().split(" ");
-                    System.out.println(Arrays.toString(srcDest));
+                    diff = Long.parseLong(srcDest[1]) - Long.parseLong(srcDest[0]);
+                    for (int k = 1; k < Integer.parseInt(srcDest[2]); k++) {
+                        num = Long.parseLong(srcDest[1]) + k;
+                        if (num == source) {
+                            source = num;
+                            break;
+                        }
+                    }
                 }
             }
+            System.out.println(source);
         }
 
     }
