@@ -1,9 +1,10 @@
+package AoC2023;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 public class Day_5 {
     public static void main(String[] args) throws IOException {

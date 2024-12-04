@@ -1,9 +1,9 @@
+package AoC2023;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class Day_4 {
     public static void main(String[] args) throws IOException {

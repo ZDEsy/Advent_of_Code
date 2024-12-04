@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Advent_of_Code_2023</artifactId>
+    <artifactId>Advent_of_Code</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
