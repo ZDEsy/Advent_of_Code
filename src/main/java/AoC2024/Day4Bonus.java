@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Day4_bonus {
+public class Day4Bonus {
 
     public int wordExists(char[][] board) {
         int numOfWords = 0;
@@ -49,7 +49,7 @@ public class Day4_bonus {
             i++;
         }
 
-        Day4_bonus puzzle = new Day4_bonus();
+        Day4Bonus puzzle = new Day4Bonus();
         System.out.println(puzzle.wordExists(board));
     }
 }

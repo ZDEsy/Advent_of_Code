@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Day_2_bonus {
+public class Day2Bonus {
     public static String line;
     public static String[] cubes;
     public static Scanner sc;

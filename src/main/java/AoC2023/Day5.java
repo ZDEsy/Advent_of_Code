@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 
-public class Day_5 {
+public class Day5 {
     public static void main(String[] args) throws IOException {
         List<String> strings = Files.readAllLines(Path.of("input5.txt"));
         String[] seeds = strings.get(0).replaceAll("[^\\d.]+", " ").trim().split(" ");

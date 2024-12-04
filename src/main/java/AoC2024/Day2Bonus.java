@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Day2_bonus {
+public class Day2Bonus {
     public static void main(String[] args) throws FileNotFoundException {
         int sum = 0;
 

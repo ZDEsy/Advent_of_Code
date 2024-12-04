@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Day_2{
+public class Day2 {
     public static String line;
     public static String[] cubes;
     public static Scanner sc;

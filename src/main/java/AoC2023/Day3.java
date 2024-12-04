@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class Day_3 {
+public class Day3 {
     public static int i;
     public static void main(String[] args) throws IOException {
         Path path = Path.of("input3.txt");

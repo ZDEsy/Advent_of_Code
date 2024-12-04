@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class Day_6 {
+public class Day6 {
     public static void main(String[] args) throws IOException {
         List<String> lines = Files.readAllLines(Path.of("input6.txt"));
         String[] time = lines.get(0).replaceAll("[^\\d.]+", " ").trim().split(" ");
