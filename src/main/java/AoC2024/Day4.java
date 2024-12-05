@@ -11,6 +11,9 @@ public class Day4 {
 
     public int wordExists(char[][] board, String word) {
         int numOfWords = 0;
+        int columns = 0;
+        int rows = 0;
+        int diagonal = 0;
         this.word = new char[word.length()];
         currentChar = 0;
 
@@ -23,39 +26,50 @@ public class Day4 {
                 if (this.word.length != 0 && board[i][j] == this.word[currentChar]) {
                     if (letterExists(board, i, j, this.word[++currentChar], "N")) {
                         numOfWords++;
+                        columns++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "NE")) {
                         numOfWords++;
+                        diagonal++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "E")) {
                         numOfWords++;
+                        rows++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "SE")) {
                         numOfWords++;
+                        diagonal++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "S")) {
                         numOfWords++;
+                        columns++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "SW")) {
                         numOfWords++;
+                        diagonal++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "W")) {
                         numOfWords++;
+                        rows++;
                     }
                     currentChar = 0;
                     if (letterExists(board, i, j, this.word[++currentChar], "NW")) {
                         numOfWords++;
+                        diagonal++;
                     }
                     currentChar = 0;
                 }
             }
         }
+        System.out.println("Columns: " + columns);
+        System.out.println("Diagonal: " + diagonal);
+        System.out.println("Rows: " + rows);
         return numOfWords;
     }
 
